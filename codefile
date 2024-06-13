@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Website Title</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #eee;
+    }
+
+    .logo {
+      flex-grow: 0;
+    }
+
+    .logo img {
+      width: 100px;
+      height: auto;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    nav ul li {
+      margin-right: 1rem;
+    }
+
+    nav ul li img {
+      width: 50px;
+      height: auto;
+    }
+
+    .toggle-button {
+      display: none;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .toggle-button.active span {
+      background-color: #000;
+    }
+
+    .toggle-button span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background-color: #ccc;
+      margin-bottom: 5px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .toggle-button span:nth-child(2) {
+      margin-bottom: auto;
+    }
+
+    .nav-links {
+      display: flex;
+    }
+
+    .nav-links.active {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .toggle-button {
+        display: block;
+      }
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .button-container {
+      width: 200px;
+      background-color: #f5f5f5;
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .button-container button {
+      background-color: #007bff;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .container-wrapper {
+      flex-grow: 1;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 1rem;
+      padding: 2rem;
+      margin-left: 200px;
+    }
+
+    .container {
+      background-color: #f5f5f5;
+      padding: 1rem;
+      text-align: center;
+      height: 400px;
+      width: 500px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .container:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .content {
+      background-color: #f5f5f5;
+      padding: 1rem;
+      text-align: left;
+      margin-left: 200px;
+    }
+
+    .Heading {
+      color: #1900ff;
+      padding: 1rem;
+      text-align: left;
+      margin-left: 200px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .Heading button {
+      margin-left: 20px;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        flex-direction: column;
+      }
+
+      .button-container {
+        margin-bottom: 1rem;
+      }
+
+      .container-wrapper {
+        margin-left: 0;
+      }
+    }
+
+    .first nav,
+    .second nav,
+    .third nav,
+    .fourth nav {
+      background-color: black;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin: 1rem;
+      position: relative;
+    }
+
+    .info-button {
+      background-color: white;
+      color: black;
+      border: 1px solid black;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      cursor: pointer;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    .video-container {
+      margin: 1rem;
+      height: 200px;
+    }
+
+    .video-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .arrow-button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 24px;
+      padding: 0;
+      margin-top: 1rem;
+    }
+
+    .second .boxes-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1rem;
+    }
+
+    .second .box {
+      background-color: #ccc;
+      width: 100px;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .second .rectangle-box {
+      background-color: #ccc;
+      width: 100%;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 1rem;
+      position: relative;
+    }
+
+    .second .rectangle-box input {
+      width: 90%;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+
+    .second .buttons-container {
+      display: flex;
+      justify-content: center;
+      margin: 1rem 0;
+    }
+
+    .second .buttons-container button {
+      margin: 0 0.5rem;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .third input {
+      height: 50px;
+      width: 400px;
+    }
+
+    .second input {
+      height: 100px;
+      width: 100px;
+    }
+
+    img {
+      height: 100px;
+      width: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <img src="https://deepthought.education/assets/images/logo/logo.svg" alt="Your Website Logo">
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><img src="https://imgs.search.brave.com/QyTUmckmRaYLdnCR4lA6ccIwdwPbjXnq5fqhy7MUkbE/rs:fit:500:0:0/g:ce/aHR0cHM6Ly93d3cubGlmZXdpcmUuY29tL3RobWIvOHRRai1P/OGxvaERLT0EyS2lq/R3FWSEdXZ1FjPS8z/NjB4MjQwL2ZpbHRl/cnM6bm9fdXBzY2Fs/ZSgpOm1heF9ieXRl/cygxNTAwMDApOnN0/cmlwX2ljYygpL2hv/bWUtYnV0dG9uLTJl/ZDQ0NmU2NTMzODQw/NWE5ZjkyZjk5YmRm/YjMzNjhmLnBuZw" alt="Logo 1"></li>
+        <li><img src="screw driver logo.png" alt="Logo 2"></li>
+        <li><img src="https://imgs.search.brave.com/4yAsUQz7AZXFTR61M3WIuxy597WvBbZeXOTnTV1WpLM/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9jZG4wLmljb25maW5kZXIuY29tL2RhdGEvaWNvbnMvc29jaWFsLW1lc3NhZ2luZy11aS1jb2xvci1zaGFwZXMv/MTI4L25vdGlmaWNhdGlvbi1jaXJjbGUtc2hhcGVzLTUxMi5wbmc" alt="Logo 3"></li>
+        <li><img src="https://imgs.search.brave.com/SyZYwRn1NxqVd_pddaRcj7G0WH5x2VGCi2vT-s_kvQ8/rs:fit:500:0:0/g:ce/aHR0cHM6Ly93d3cubmFtZWJhZHdlYi5jb20vdGltZXMvMjAyMjAxMTIv/MDUwNzg2NTk0OS1ob21lLWJ1dHRvbi1yZXNvbHV0aW9uLXNwb3J0LmpwZw" alt="Logo 4"></li>
+      </ul>
+      <button id="toggle-button" class="toggle-button">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </nav>
+  </header>
+  <div class="Heading">
+    <h2>Technical Project Management</h2>
+    <button>Submit Task</button>
+  </div>
+  <div class="content">
+    <h2><b>Explore The World Of Management</b></h2>
+    <p>As a project manager, you play an important role in leading a project through initiation, planning, execution, monitoring, controlling, and completion. How? Do you want to manage each and every step of your life?</p>
+  </div>
+  <div class="button-container">
+    <button>Your Button Text</button>
+  </div>
+  <main>
+    <div class="container-wrapper">
+      <div class="container">
+        <div class="first">
+          <nav>
+            <b>Technical Project Management</b>
+            <button class="info-button">i</button>
+          </nav>
+          <b>Description:</b> Story of Alignment Scope of Agility Specific Accountable Staggering Approach
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/live/TiMRwri1xJ8?si=ybP6Cn-kpX5wehOc" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="second">
+          <nav>
+            <b>Threshold</b>
+            <button class="info-button">i</button>
+          </nav>
+          <b>Description:</b> Watch the video and threadbuild, and jot out key threads while watching the video
+          <div class="boxes-container">
+            <p>Sub Thread 1</p>
+            <div class="box">
+              <input type="text">
+            </div>
+            <p>Sub Interpretation</p>
+            <div class="box">
+              <input type="text">
+            </div>
+          </div>
+          <div class="buttons-container">
+            <button>Button 1</button>
+            <button>Button 2</button>
+            <button>Button 3</button>
+          </div>
+          <div class="rectangle-box">
+            Summary of thread A
+            <input type="text" placeholder="Enter your summary here">
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="third">
+          <nav>
+            <b>Structure your Pointers</b>
+            <button class="info-button">i</button>
+          </nav>
+          <b>Description:</b> Write a 300 - 400 word article from your thread. Publish your understanding and showcase your understanding to the entire world
+          <p><b>Title</b></p>
+          <input type="text">
+          <p><b>Content</b></p>
+          <section>
+            <p>File Edit View Insert Format Tools Table Help</p>
+            <div class="suyash"><input type="text" placeholder="paragraph"></div>
+          </section>
+        </div>
+      </div>
+      <div class="container">
+        <div class="fourth">
+          <nav>
+            <b>4SA Method</b>
+            <button class="info-button">i</button>
+          </nav>
+          <p><b>Description:</b> To Explore more read more</p>
+          <header><b>Introduction</b></header>
+          <p>The 4SA Method, How to bring an idea into progress?</p>
+          <p><b>Thread 1</b></p>
+          <p>How are you going to develop your strategy? Which method are you going to use to develop a strategy? What if the project is lengthy?</p>
+          <p><b>Example 1</b></p>
+          <p>You have a concept, How will you put it into progress?</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    document.getElementById("toggle-button").addEventListener("click", function () {
+      this.classList.toggle("active");
+      document.querySelector(".nav-links").classList.toggle("active");
+    });
+  </script>
+</body>
+
+</html>
