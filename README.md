@@ -54,6 +54,8 @@ This project was created as part of an interview assignment, so contributions ar
 Contact
 If you have any questions or need further information, please feel free to contact me:
 
-Name: [Your Name]
-Email: [your.email@example.com]
-LinkedIn: [Your LinkedIn Profile]
+Name: Suyash Pathak
+Email: suyashp271@gmail.com
+LinkedIn: www.linkedin.com/in/suyash-pathak-4347b5283
+
+
